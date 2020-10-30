@@ -9,42 +9,22 @@ import Creature from './Creature.js'
 
 export default class CreatureList extends Component {
 
-    state = {
-        filter: ''
-    }
-    handleChange = e => {
-        this.setState({
-            filter: e.target.value
-        });
-    }
-
-
     render() {
-
         const filteredImage = this.props.images.filter((image) => {
-
-
-            if (!this.state.filter) {
-
+            if (!this.props.filter) {
                 return true;
-            } else if (image.horns === Number(this.state.filter)) {
+            } else if (this.state.horns === Number(this.props.filter)) {
                 return true;
-            } else if (image.keyword === this.state.filter) {
+            } else if (this.state.keyword === this.props.filter) {
                 return true;
             } else
                 return false
-
-
         });
-
-
-
-
         return (
             <>
                 <section className="searches">
                     <div className="sorter"> <div>Sort By Number of Horns</div>
-                        <select onChange={this.handleChange}>
+                        <select onChange={this.props.handleChange}>
                             <option value=''>Show All</option>
                             <option value='1'>One Horn</option>
                             <option value='2'>Two Horns</option>
@@ -53,7 +33,7 @@ export default class CreatureList extends Component {
                         </select>
                     </div>
                     <div className="sorter"> <div>Sort by Keyword</div>
-                        <select onChange={this.handleChange}>
+                        <select onChange={this.props.handleChange}>
                             <option value=''>Show All</option>
                             <option value="narwhal">Narwal</option>
                             <option value="rhino">Rhino</option>
