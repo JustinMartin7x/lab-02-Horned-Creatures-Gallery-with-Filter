@@ -6,14 +6,9 @@ import React, { Component } from 'react';
 export default class App extends Component {
 
 
-  state = {
-    filter: ''
-  }
-  handleChange = e => {
-    this.setState({
-      filter: e.target.value
-    });
-  }
+
+
+
   render() {
     return (
       <>
@@ -24,7 +19,7 @@ export default class App extends Component {
         </div>
         <div className="container">
           <CreatureList images={images}
-            filter={this.state.filter} />
+          />
         </div>
 
       </>
